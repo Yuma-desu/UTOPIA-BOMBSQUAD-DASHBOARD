@@ -1,4 +1,4 @@
-"""UTOPIA BombSquad Dashboard — Flask web server."""
+﻿"""UTOPIA BombSquad Dashboard â€” Flask web server."""
 
 import json
 import os
@@ -10,7 +10,7 @@ from flask import Flask, jsonify, render_template_string
 
 app = Flask(__name__)
 
-# ── config ──────────────────────────────────────────────────────────
+# â”€â”€ config â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 SERVER_DIR = os.environ.get("BS_SERVER_DIR", os.path.expanduser("~/UTOPIA-BOMBSQUAD-SERVER"))
 STATS_FILE = os.path.join(SERVER_DIR, "dist", "ba_root", "mods", "stats", "stats.json")
 PROFILES_FILE = os.path.join(SERVER_DIR, "dist", "ba_root", "mods", "playersdata", "profiles.json")
@@ -19,10 +19,10 @@ SETTINGS_FILE = os.path.join(SERVER_DIR, "dist", "ba_root", "mods", "setting.jso
 
 # Show these on the dashboard
 DISCORD_INVITE = os.environ.get("DISCORD_INVITE", "https://discord.gg/jBj8tFuu2ah")
-SERVER_NAME = os.environ.get("SERVER_NAME", "SONder")
+SERVER_NAME = os.environ.get("SERVER_NAME", "UTOPIA")
 REFRESH_SECONDS = 30
 
-# ── helpers ──────────────────────────────────────────────────────────
+# â”€â”€ helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def safe_read_json(path, default=None):
     """Read a JSON file, returning default on any error."""
     if default is None:
@@ -74,7 +74,7 @@ def get_server_info():
         "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
     }
 
-# ── routes ───────────────────────────────────────────────────────────
+# â”€â”€ routes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 @app.route("/")
 def index():
     return render_template_string(HTML_TEMPLATE,
@@ -92,13 +92,13 @@ def api_server():
     return jsonify(get_server_info())
 
 
-# ── HTML template ────────────────────────────────────────────────────
+# â”€â”€ HTML template â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ server.name }} — Dashboard</title>
+<title>{{ server.name }} â€” Dashboard</title>
 <meta http-equiv="refresh" content="{{ refresh }}">
 <style>
   :root {
@@ -106,7 +106,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     --card: #16161f;
     --text: #e0e0e0;
     --muted: #888;
-    --accent: #c0392b;
+    --accent: #9977c9; --accent2: #b38fd9;
     --gold: #f0a030;
     --silver: #a0a8b8;
     --bronze: #c08050;
